@@ -10,6 +10,7 @@ axios.defaults.baseURL = 'https://api.github.com'
 // http request 拦截器
 axios.interceptors.request.use(
   config => {
+    // 本地存在 token，请求头带上 token
     if (localStorage.getItem('token')) {
       config.headers.Authorization = `token ${localStorage.getItem('token')}`
     }

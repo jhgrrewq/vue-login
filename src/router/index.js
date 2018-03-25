@@ -41,7 +41,9 @@ const router = new Router({
 // 全局导航守卫
 router.beforeEach((to, from, next) => {
   // to, from 都是路由对象
-  if (to.matched.some(r => r.meta.requiresAuth)) {
+  console.log(to)
+  // if (to.matched.some(r => r.meta.requiresAuth)) {
+  if (to.meta && to.meta.requiresAuth) {
     // 元数据需要登录验证
     if (localStorage.getItem('token')) {
       // 验证有 token
